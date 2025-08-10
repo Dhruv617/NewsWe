@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Latest news and updates from around the world">
+    <meta name="keywords" content="news, breaking news, world news, national news, business, sports, movies">
+    <meta name="author" content="Your News Portal">
+    
+    <title>News Portal - Latest Updates</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/">
+    <meta property="og:title" content="News Portal - Latest Updates">
+    <meta property="og:description" content="Latest news and updates from around the world">
+    <meta property="og:image" content="https://yourwebsite.com/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourwebsite.com/">
+    <meta property="twitter:title" content="News Portal - Latest Updates">
+    <meta property="twitter:description" content="Latest news and updates from around the world">
+    <meta property="twitter:image" content="https://yourwebsite.com/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #0d47a1;
+            --secondary-color: #f5f5f5;
+            --text-color: #333;
+            --light-text: #666;
+            --border-color: #ddd;
+            --header-height: 70px;
+            --sidebar-width: 300px;
+            --success-color: #4caf50;
+            --warning-color: #ff9800;
+            --danger-color: #f44336;
+        }
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #fff;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .reward-points {
+            background-color: var(--warning-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            overflow-x: auto;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+        
+        .category-tab {
+            padding: 8px 16px;
+            margin-right: 10px;
+            background-color: var(--secondary-color);
+            border-radius: 20px;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .category-tab.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            margin-top: 20px;
+            gap: 20px;
+        }
+        
+        .content-area {
+            flex: 1;
+        }
+        
+        /* Article Styles */
+        .article-card {
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .article-content {
+            padding: 15px;
+        }
+        
+        .article-category {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .article-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .article-title a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        
+        .article-title a:hover {
+            color: var(--primary-color);
+        }
+        
+        .article-meta {
+            font-size: 14px;
+            color: var(--light-text);
+            margin-bottom: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .article-excerpt {
+            color: var(--light-text);
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            display: inline-block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .verification-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .verified {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--success-color);
+        }
+        
+        .pending {
+            background-color: rgba(255, 152, 0, 0.1);
+            color: var(--warning-color);
+        }
+        
+        .rejected {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: var(--danger-color);
+        }
+        
+        /* Featured Article */
+        .featured-article {
+            margin-bottom: 30px;
+        }
+        
+        .featured-article .article-image {
+            height: 400px;
+        }
+        
+        .featured-article .article-title {
+            font-size: 28px;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+        }
+        
+        .sidebar-section {
+            background: white;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .trending-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .trending-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .trending-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        
+        .trending-content {
+            flex: 1;
+        }
+        
+        .trending-title {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .trending-title a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        
+        .trending-title a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #0a3d8a;
+        }
+        
+        .cta-button i {
+            margin-right: 8px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+            padding-right: 20px;
+        }
+        
+        .footer-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Newsletter */
+        .newsletter-form {
+            display: flex;
+            margin-top: 10px;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .newsletter-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .newsletter-button:hover {
+            background-color: #0a3d8a;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 250px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 10px 20px;
+            }
+            
+            .user-menu {
+                display: none;
+            }
+            
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+            }
+            
+            .featured-article .article-image {
+                height: 250px;
+            }
+            
+            .featured-article .article-title {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">NewsPortal</a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#business">Business</a></li>
+                    <li><a href="#sports">Sports</a></li>
+                    <li><a href="#movies">Movies</a></li>
+                    <li><a href="#all-news">All News</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#opinion">Opinion</a></li>
+                    <li><a href="submit-news.html">Submit News</a></li>
+                    <li><a href="user-news.html">User News</a></li>
+                </ul>
+            </nav>
+            <div class="user-menu">
+                <div class="reward-points"><i class="fas fa-coins"></i> 250 Points</div>
+                <div class="user-avatar">JD</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Tabs -->
+    <div class="container">
+        <div class="category-tabs">
+            <div class="category-tab active" data-category="all">All News</div>
+            <div class="category-tab" data-category="business">Business</div>
+            <div class="category-tab" data-category="sports">Sports</div>
+            <div class="category-tab" data-category="movies">Movies</div>
+            <div class="category-tab" data-category="technology">Technology</div>
+            <div class="category-tab" data-category="national">National</div>
+            <div class="category-tab" data-category="international">International</div>
+            <div class="category-tab" data-category="user-submitted">User Submitted</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Featured Article -->
+                <article class="article-card featured-article" onclick="window.location.href='article1.html'">
+                    <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Featured Article" class="article-image">
+                    <div class="article-content">
+                        <span class="article-category">Breaking News</span>
+                        <h2 class="article-title"><a href="article1.html">Global Climate Summit Reaches Historic Agreement on Carbon Emissions</a></h2>
+                        <div class="article-meta">
+                            <span>By Jane Smith</span> | <span>May 15, 2023</span> | <span>5 min read</span>
+                        </div>
+                        <p class="article-excerpt">World leaders have agreed on unprecedented measures to combat climate change, setting ambitious targets for carbon neutrality by 2040. The agreement, which was signed by 195 countries, includes binding commitments to reduce fossil fuel subsidies and increase renewable energy investments.</p>
+                        <a href="article1.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Business News Section -->
+                <section id="business">
+                    <h2 class="section-title">Business News</h2>
+                    
+                    <article class="article-card" onclick="window.location.href='article2.html'">
+                        <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a1f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" alt="Article Image" class="article-image">
+                        <div class="article-content">
+                            <span class="article-category">Business</span>
+                            <h3 class="article-title"><a href="article2.html">Global Markets Rally as Inflation Shows Signs of Cooling</a></h3>
+                            <div class="article-meta">
+                                <span>By Michael Chen</span> | <span>May 14, 2023</span>
+                            </div>
+                            <p class="article-excerpt">Stock markets around the world surged today after new data indicated that inflation rates are beginning to stabilize, raising hopes for an end to aggressive interest rate hikes.</p>
+                            <a href="article2.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="article-card" onclick="window.location.href='article3.html'">
+                        <img src="https://images.unsplash.com/photo-1556740753-8e6a7be3a23c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Article Image" class="article-image">
+                        <div class="article-content">
+                            <span class="article-category">Business</span>
+                            <h3 class="article-title"><a href="article3.html">Tech Giant Announces Record Quarterly Profits Amid Economic Uncertainty</a></h3>
+                            <div class="article-meta">
+                                <span>By Robert Johnson</span> | <span>May 13, 2023</span>
+                            </div>
+                            <p class="article-excerpt">Despite global economic challenges, one of the world's largest technology companies has reported its highest quarterly profits in history, driven by strong cloud services and AI product adoption.</p>
+                            <a href="article3.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- Sports News Section -->
+                <section id="sports">
+                    <h2 class="section-title">Sports News</h2>
+                    
+                    <article class="article-card" onclick="window.location.href='article4.html'">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Article Image" class="article-image">
+                        <div class="article-content">
+                            <span class="article-category">Sports</span>
+                            <h3 class="article-title"><a href="article4.html">Underdog Team Wins Championship in Stunning Upset</a></h3>
+                            <div class="article-meta">
+                                <span>By Sarah Williams</span> | <span>May 13, 2023</span>
+                            </div>
+                            <p class="article-excerpt">In one of the most surprising outcomes in sports history, the underdog team defeated the reigning champions in a thrilling final match that went into overtime.</p>
+                            <a href="article4.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="article-card" onclick="window.location.href='article5.html'">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Article Image" class="article-image">
+                        <div class="article-content">
+                            <span class="article-category">Sports</span>
+                            <h3 class="article-title"><a href="article5.html">Olympic Committee Announces New Sports for Upcoming Games</a></h3>
+                            <div class="article-meta">
+                                <span>By David Martinez</span> | <span>May 12, 2023</span>
+                            </div>
+                            <p class="article-excerpt">The International Olympic Committee has confirmed the addition of three new sports to the upcoming Olympic Games, reflecting changing global interests and youth participation trends.</p>
+                            <a href="article5.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- User Submitted News Section -->
+                <section id="user-submitted">
+                    <h2 class="section-title">User Submitted News</h2>
+                    
+                    <article class="article-card" onclick="window.location.href='user-article1.html'">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Article Image" class="article-image">
+                        <div class="article-content">
+                            <span class="article-category">Technology</span>
+                            <h3 class="article-title"><a href="user-article1.html">Local Startup Develops Innovative Solution to Plastic Waste Problem</a></h3>
+                            <div class="article-meta">
+                                <span>By Alex Johnson</span> | <span>May 14, 2023</span>
+                                <span class="verification-badge verified"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="article-excerpt">A small startup has developed a groundbreaking technology that can break down plastic waste in a matter of hours, offering a potential solution to one of the world's most pressing environmental issues.</p>
+                            <a href="user-article1.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="article-card" onclick="window.location.href='user-article2.html'">
+                        <img src="https://images.unsplash.com/photo-1590239423364-4a9e8ddf2a3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Article Image" class="article-image">
+                        <div class="article-content">
+                            <span class="article-category">Health</span>
+                            <h3 class="article-title"><a href="user-article2.html">New Study Links Diet to Improved Mental Health</a></h3>
+                            <div class="article-meta">
+                                <span>By Lisa Anderson</span> | <span>May 12, 2023</span>
+                                <span class="verification-badge verified"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="article-excerpt">A comprehensive study has found strong correlations between specific dietary patterns and improved mental health outcomes, suggesting nutrition may play a key role in preventing depression and anxiety.</p>
+                            <a href="user-article2.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Submit News CTA -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Contribute to NewsPortal</h3>
+                    <p>Share verified news and earn rewards!</p>
+                    <a href="submit-news.html" class="cta-button"><i class="fas fa-plus-circle"></i> Submit News</a>
+                    <p>Verified contributors earn reward points for each approved article.</p>
+                </div>
+                
+                <!-- Trending Section -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Trending Now</h3>
+                    
+                    <div class="trending-item">
+                        <div class="trending-number">1</div>
+                        <div class="trending-content">
+                            <h4 class="trending-title"><a href="article1.html">Global Climate Summit Reaches Historic Agreement</a></h4>
+                            <div class="article-meta">2.5k views</div>
+                        </div>
+                    </div>
+                    
+                    <div class="trending-item">
+                        <div class="trending-number">2</div>
+                        <div class="trending-content">
+                            <h4 class="trending-title"><a href="article2.html">Global Markets Rally as Inflation Cools</a></h4>
+                            <div class="article-meta">1.8k views</div>
+                        </div>
+                    </div>
+                    
+                    <div class="trending-item">
+                        <div class="trending-number">3</div>
+                        <div class="trending-content">
+                            <h4 class="trending-title"><a href="user-article1.html">Local Startup Develops Plastic Waste Solution</a></h4>
+                            <div class="article-meta">1.5k views</div>
+                        </div>
+                    </div>
+                    
+                    <div class="trending-item">
+                        <div class="trending-number">4</div>
+                        <div class="trending-content">
+                            <h4 class="trending-title"><a href="article4.html">Underdog Team Wins Championship</a></h4>
+                            <div class="article-meta">1.2k views</div>
+                        </div>
+                    </div>
+                    
+                    <div class="trending-item">
+                        <div class="trending-number">5</div>
+                        <div class="trending-content">
+                            <h4 class="trending-title"><a href="user-article2.html">Diet Linked to Improved Mental Health</a></h4>
+                            <div class="article-meta">1.1k views</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Newsletter Section -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Subscribe to Newsletter</h3>
+                    <p>Get the latest news delivered directly to your inbox</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-button">Subscribe</button>
+                    </form>
+                </div>
+
+                <!-- Categories Section -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#business">Business News</a></li>
+                        <li><a href="#sports">Sports News</a></li>
+                        <li><a href="#movies">Movies</a></li>
+                        <li><a href="#all-news">All News</a></li>
+                        <li><a href="#technology">Technology</a></li>
+                        <li><a href="#national">National</a></li>
+                        <li><a href="#international">International</a></li>
+                        <li><a href="#user-submitted">User Submitted</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">About Us</h3>
+                    <p>NewsPortal is your trusted source for the latest news and updates from around the world. Our team of dedicated journalists works tirelessly to bring you accurate and timely information.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#business">Business</a></li>
+                        <li><a href="#sports">Sports</a></li>
+                        <li><a href="#movies">Movies</a></li>
+                        <li><a href="#all-news">All News</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Community</h3>
+                    <ul class="footer-links">
+                        <li><a href="submit-news.html">Submit News</a></li>
+                        <li><a href="user-news.html">User News</a></li>
+                        <li><a href="verification-process.html">Verification Process</a></li>
+                        <li><a href="rewards.html">Rewards Program</a></li>
+                        <li><a href="community-guidelines.html">Community Guidelines</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 News Street, Media City</li>
+                        <li><i class="fas fa-phone"></i> +1 (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@newsportal.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 NewsPortal. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+        
+        // Category Tabs
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const sections = document.querySelectorAll('section');
+        
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Get category
+                const category = this.getAttribute('data-category');
+                
+                // Show/hide sections based on category
+                sections.forEach(section => {
+                    if (category === 'all') {
+                        section.style.display = 'block';
+                    } else if (section.id === category) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Newsletter Form
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('.newsletter-input').value;
+            
+            // Here you would normally send the email to your server
+            // For demonstration, we'll just show an alert
+            alert('Thank you for subscribing with: ' + email);
+            this.reset();
+        });
+        
+        // Simple SEO optimization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add structured data for articles
+            const articles = document.querySelectorAll('.article-card');
+            
+            articles.forEach(article => {
+                const title = article.querySelector('.article-title a').textContent;
+                const category = article.querySelector('.article-category').textContent;
+                const author = article.querySelector('.article-meta span').textContent;
+                const date = article.querySelectorAll('.article-meta span')[1].textContent;
+                const image = article.querySelector('.article-image').src;
+                const excerpt = article.querySelector('.article-excerpt').textContent;
+                
+                const structuredData = {
+                    "@context": "https://schema.org",
+                    "@type": "NewsArticle",
+                    "headline": title,
+                    "image": [image],
+                    "articleSection": category,
+                    "author": {
+                        "@type": "Person",
+                        "name": author.replace('By ', '')
+                    },
+                    "datePublished": date,
+                    "description": excerpt
+                };
+                
+                const script = document.createElement('script');
+                script.type = 'application/ld+json';
+                script.textContent = JSON.stringify(structuredData);
+                document.head.appendChild(script);
+            });
+        });
+    </script>
+</body>
+</html>
