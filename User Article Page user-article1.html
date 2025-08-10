@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Local startup develops innovative solution to plastic waste problem">
+    <meta name="keywords" content="plastic waste, startup, environment, innovation, sustainability">
+    <meta name="author" content="Alex Johnson">
+    
+    <title>Local Startup Develops Innovative Solution to Plastic Waste Problem | NewsPortal</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://yourwebsite.com/user-article1.html">
+    <meta property="og:title" content="Local Startup Develops Innovative Solution to Plastic Waste Problem">
+    <meta property="og:description" content="A small startup has developed a groundbreaking technology that can break down plastic waste in a matter of hours">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourwebsite.com/user-article1.html">
+    <meta property="twitter:title" content="Local Startup Develops Innovative Solution to Plastic Waste Problem">
+    <meta property="twitter:description" content="A small startup has developed a groundbreaking technology that can break down plastic waste in a matter of hours">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #0d47a1;
+            --secondary-color: #f5f5f5;
+            --text-color: #333;
+            --light-text: #666;
+            --border-color: #ddd;
+            --header-height: 70px;
+            --success-color: #4caf50;
+            --warning-color: #ff9800;
+            --danger-color: #f44336;
+        }
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #fff;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .reward-points {
+            background-color: var(--warning-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Article Content */
+        .article-container {
+            margin: 30px auto;
+            max-width: 800px;
+        }
+        
+        .article-header {
+            margin-bottom: 20px;
+        }
+        
+        .article-category {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .article-title {
+            font-size: 32px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .article-meta {
+            font-size: 16px;
+            color: var(--light-text);
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .article-meta-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .article-meta-item i {
+            margin-right: 5px;
+        }
+        
+        .verification-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .verified {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--success-color);
+        }
+        
+        .article-image {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .article-content {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+        }
+        
+        .article-content h2 {
+            font-size: 24px;
+            margin: 30px 0 15px;
+            color: var(--primary-color);
+        }
+        
+        .article-content h3 {
+            font-size: 20px;
+            margin: 25px 0 15px;
+        }
+        
+        .article-content blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--light-text);
+        }
+        
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        /* Author Box */
+        .author-box {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .author-avatar-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+        
+        .author-info h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .author-bio {
+            color: var(--light-text);
+            margin-bottom: 10px;
+        }
+        
+        .author-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 14px;
+        }
+        
+        .author-stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .author-stat i {
+            color: var(--primary-color);
+        }
+        
+        /* Social Sharing */
+        .social-sharing {
+            margin: 30px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .social-sharing-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Verification Process */
+        .verification-process {
+            background-color: rgba(13, 71, 161, 0.05);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .verification-process h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .verification-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .verification-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            padding: 0 10px;
+        }
+        
+        .verification-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -15px;
+            width: 30px;
+            height: 2px;
+            background-color: var(--border-color);
+        }
+        
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+        }
+        
+        .step-name {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .verification-result {
+            background-color: rgba(76, 175, 80, 0.1);
+            border-left: 4px solid var(--success-color);
+            padding: 15px;
+            border-radius: 0 5px 5px 0;
+            margin-top: 20px;
+        }
+        
+        .verification-result h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: var(--success-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Reward Info */
+        .reward-info {
+            background-color: rgba(255, 152, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .reward-icon {
+            font-size: 48px;
+            color: var(--warning-color);
+        }
+        
+        .reward-text h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: var(--warning-color);
+        }
+        
+        /* Related Articles */
+        .related-articles {
+            margin-top: 40px;
+        }
+        
+        .related-articles-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .related-articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .related-article-card {
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .related-article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .related-article-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .related-article-content {
+            padding: 15px;
+        }
+        
+        .related-article-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .related-article-title a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        
+        .related-article-title a:hover {
+            color: var(--primary-color);
+        }
+        
+        .related-article-meta {
+            font-size: 14px;
+            color: var(--light-text);
+        }
+        
+        /* Comments Section */
+        .comments-section {
+            margin-top: 40px;
+        }
+        
+        .comments-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .comment-form {
+            margin-bottom: 30px;
+        }
+        
+        .comment-form h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .comment-submit {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .comment-submit:hover {
+            background-color: #0a3d8a;
+        }
+        
+        .comment {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .comment:last-child {
+            border-bottom: none;
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .comment-author {
+            font-weight: bold;
+        }
+        
+        .comment-date {
+            color: var(--light-text);
+            font-size: 14px;
+        }
+        
+        .comment-content {
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+            padding-right: 20px;
+        }
+        
+        .footer-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 10px 20px;
+            }
+            
+            .user-menu {
+                display: none;
+            }
+            
+            .article-title {
+                font-size: 24px;
+            }
+            
+            .article-content {
+                font-size: 16px;
+            }
+            
+            .author-box {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .verification-steps {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .verification-step:not(:last-child):after {
+                display: none;
+            }
+            
+            .social-sharing {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .related-articles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .reward-info {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">NewsPortal</a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#business">Business</a></li>
+                    <li><a href="#sports">Sports</a></li>
+                    <li><a href="#movies">Movies</a></li>
+                    <li><a href="#all-news">All News</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#opinion">Opinion</a></li>
+                    <li><a href="submit-news.html">Submit News</a></li>
+                    <li><a href="user-news.html">User News</a></li>
+                </ul>
+            </nav>
+            <div class="user-menu">
+                <div class="reward-points"><i class="fas fa-coins"></i> 250 Points</div>
+                <div class="user-avatar">JD</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <div class="container">
+        <div class="article-container">
+            <div class="article-header">
+                <span class="article-category">Technology</span>
+                <h1 class="article-title">Local Startup Develops Innovative Solution to Plastic Waste Problem</h1>
+                <div class="article-meta">
+                    <div class="article-meta-item">
+                        <i class="fas fa-user"></i>
+                        <span>By Alex Johnson</span>
+                    </div>
+                    <div class="article-meta-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>May 14, 2023</span>
+                    </div>
+                    <div class="article-meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>4 min read</span>
+                    </div>
+                    <div class="article-meta-item">
+                        <i class="fas fa-eye"></i>
+                        <span>1.5k views</span>
+                    </div>
+                    <div class="verification-badge verified"><i class="fas fa-check-circle"></i> Verified</div>
+                </div>
+            </div>
+            
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Plastic Waste Solution" class="article-image">
+            
+            <div class="article-content">
+                <p>A small startup based in our city has developed a groundbreaking technology that can break down plastic waste in a matter of hours, offering a potential solution to one of the world's most pressing environmental issues.</p>
+                
+                <p>EcoSolve, founded just two years ago by a team of local engineers and environmental scientists, has created a chemical process that can decompose plastic polymers into their basic molecular components. These components can then be reused to create new plastic products or safely returned to the environment without causing harm.</p>
+                
+                <h2>How It Works</h2>
+                
+                <p>The technology uses a proprietary combination of enzymes and catalysts that target the specific chemical bonds in plastic polymers. When plastic waste is treated with this solution, the bonds are broken down at an accelerated rate, reducing what would normally take centuries in nature to just a few hours.</p>
+                
+                <blockquote>"We're not just masking the problem or finding new ways to store plastic waste. We're actually eliminating it by returning it to its basic building blocks," said Dr. Sarah Chen, lead scientist at EcoSolve.</blockquote>
+                
+                <p>The process works on most common types of plastic, including PET (used in water bottles), HDPE (used in milk jugs and detergent bottles), and PP (used in food containers and bottle caps). The team is currently working on adapting the technology to work with more complex plastics like PVC and polystyrene.</p>
+                
+                <h2>Environmental Impact</h2>
+                
+                <p>The potential environmental benefits of this technology are enormous. Plastic pollution is one of the most significant environmental challenges of our time, with millions of tons of plastic entering our oceans each year, harming marine life and ecosystems.</p>
+                
+                <img src="https://images.unsplash.com/photo-1618336753974-aae8e04506b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Environmental Impact">
+                
+                <p>Traditional recycling methods often fall short due to contamination issues and the degradation of plastic quality through multiple recycling cycles. Many plastics end up in landfills or incinerators, releasing harmful chemicals into the environment.</p>
+                
+                <p>EcoSolve's technology offers a true circular solution for plastic waste. By breaking down plastics into their molecular components, the process creates a closed loop where plastic can be reused indefinitely without loss of quality.</p>
+                
+                <h2>Challenges and Next Steps</h2>
+                
+                <p>Despite the promise of this technology, EcoSolve faces several challenges in bringing it to scale. The process currently requires specialized equipment and controlled conditions, making it difficult to implement in existing waste management facilities.</p>
+                
+                <p>The startup is currently seeking funding to build a pilot plant that can process larger quantities of plastic waste. They are also working on simplifying the process to make it more accessible to municipalities and waste management companies.</p>
+                
+                <p>"Our goal is to make this technology as widely available as possible," said CEO Michael Torres. "We're not looking to create a monopoly on plastic waste management. We want to create a solution that can be adopted globally."</p>
+                
+                <p>The team is also exploring partnerships with major consumer goods companies that are looking for sustainable solutions to their plastic packaging challenges. Several companies have already expressed interest in testing the technology for their specific needs.</p>
+                
+                <h2>Community Response</h2>
+                
+                <p>The local community has rallied behind EcoSolve, with the city council recently approving a grant to help fund the pilot plant. Environmental groups have also praised the innovation, highlighting the importance of developing new technologies to address plastic pollution.</p>
+                
+                <p>"This is exactly the kind of innovative thinking we need to tackle our environmental challenges," said local environmental activist Lisa Rodriguez. "It's inspiring to see this kind of solution coming from our own community."</p>
+                
+                <p>EcoSolve plans to begin construction on the pilot plant later this year, with hopes of having it operational by early 2024. If successful, the technology could be scaled up to make a significant impact on plastic waste management worldwide.</p>
+            </div>
+            
+            <!-- Author Box -->
+            <div class="author-box">
+                <div class="author-avatar-large">AJ</div>
+                <div class="author-info">
+                    <h3>Alex Johnson</h3>
+                    <p class="author-bio">Environmental journalist and community activist with a focus on sustainable technology and local innovation.</p>
+                    <div class="author-stats">
+                        <div class="author-stat">
+                            <i class="fas fa-newspaper"></i>
+                            <span>12 Articles</span>
+                        </div>
+                        <div class="author-stat">
+                            <i class="fas fa-check-circle"></i>
+                            <span>10 Verified</span>
+                        </div>
+                        <div class="author-stat">
+                            <i class="fas fa-coins"></i>
+                            <span>500 Points</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Verification Process -->
+            <div class="verification-process">
+                <h3><i class="fas fa-shield-alt"></i> Verification Process</h3>
+                <div class="verification-steps">
+                    <div class="verification-step">
+                        <div class="step-icon"><i class="fas fa-file-alt"></i></div>
+                        <div class="step-name">Submission</div>
+                    </div>
+                    <div class="verification-step">
+                        <div class="step-icon"><i class="fas fa-search"></i></div>
+                        <div class="step-name">Fact Check</div>
+                    </div>
+                    <div class="verification-step">
+                        <div class="step-icon"><i class="fas fa-balance-scale"></i></div>
+                        <div class="step-name">Review</div>
+                    </div>
+                    <div class="verification-step">
+                        <div class="step-icon"><i class="fas fa-check"></i></div>
+                        <div class="step-name">Approval</div>
+                    </div>
+                </div>
+                <div class="verification-result">
+                    <h4><i class="fas fa-check-circle"></i> Verified on May 14, 2023</h4>
+                    <p>This article has been verified by our editorial team for accuracy and reliability. All claims have been fact-checked against credible sources.</p>
+                </div>
+            </div>
+            
+            <!-- Reward Info -->
+            <div class="reward-info">
+                <div class="reward-icon"><i class="fas fa-coins"></i></div>
+                <div class="reward-text">
+                    <h3>Reward Earned</h3>
+                    <p>The author received 50 reward points for this verified news submission. Join our community and earn rewards for your contributions!</p>
+                </div>
+            </div>
+            
+            <!-- Social Sharing -->
+            <div class="social-sharing">
+                <div class="social-sharing-title">Share this article</div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <!-- Related Articles -->
+            <div class="related-articles">
+                <h2 class="related-articles-title">Related Articles</h2>
+                <div class="related-articles-grid">
+                    <div class="related-article-card">
+                        <img src="https://images.unsplash.com/photo-1590239423364-4a9e8ddf2a3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Related Article" class="related-article-image">
+                        <div class="related-article-content">
+                            <h3 class="related-article-title"><a href="user-article2.html">New Study Links Diet to Improved Mental Health</a></h3>
+                            <div class="related-article-meta">Health | May 12, 2023</div>
+                        </div>
+                    </div>
+                    
+                    <div class="related-article-card">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Related Article" class="related-article-image">
+                        <div class="related-article-content">
+                            <h3 class="related-article-title"><a href="user-article4.html">Urban Garden Project Transforms Vacant City Lots</a></h3>
+                            <div class="related-article-meta">Environment | May 10, 2023</div>
+                        </div>
+                    </div>
+                    
+                    <div class="related-article-card">
+                        <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Related Article" class="related-article-image">
+                        <div class="related-article-content">
+                            <h3 class="related-article-title"><a href="article9.html">Researchers Discover New Species in Deep Ocean Exploration</a></h3>
+                            <div class="related-article-meta">Science | May 13, 2023</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Comments Section -->
+            <div class="comments-section">
+                <h2 class="comments-title">Comments</h2>
+                
+                <div class="comment-form">
+                    <h3>Leave a Comment</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Comment</label>
+                            <textarea id="comment" required></textarea>
+                        </div>
+                        <button type="submit" class="comment-submit">Post Comment</button>
+                    </form>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-author">John Doe</div>
+                        <div class="comment-date">May 14, 2023 at 10:30 AM</div>
+                    </div>
+                    <div class="comment-content">
+                        This is exactly the kind of innovation we need to tackle the plastic waste crisis. I hope this technology gets the funding and support it needs to scale up. Great article, Alex!
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-author">Maria Garcia</div>
+                        <div class="comment-date">May 14, 2023 at 11:45 AM</div>
+                    </div>
+                    <div class="comment-content">
+                        I'm curious about the energy requirements of this process. If it takes a lot of energy to break down the plastics, it might not be as environmentally friendly as it seems. Did the article mention anything about that?
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-author">Tom Wilson</div>
+                        <div class="comment-date">May 14, 2023 at 1:20 PM</div>
+                    </div>
+                    <div class="comment-content">
+                        As someone who works in waste management, I can tell you that we desperately need solutions like this. Current recycling rates are abysmal, and most plastic ends up in landfills. This technology could be a game-changer if it can be implemented at scale.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">About Us</h3>
+                    <p>NewsPortal is your trusted source for the latest news and updates from around the world. Our team of dedicated journalists works tirelessly to bring you accurate and timely information.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#business">Business</a></li>
+                        <li><a href="#sports">Sports</a></li>
+                        <li><a href="#movies">Movies</a></li>
+                        <li><a href="#all-news">All News</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Community</h3>
+                    <ul class="footer-links">
+                        <li><a href="submit-news.html">Submit News</a></li>
+                        <li><a href="user-news.html">User News</a></li>
+                        <li><a href="verification-process.html">Verification Process</a></li>
+                        <li><a href="rewards.html">Rewards Program</a></li>
+                        <li><a href="community-guidelines.html">Community Guidelines</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 News Street, Media City</li>
+                        <li><i class="fas fa-phone"></i> +1 (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@newsportal.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 NewsPortal. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+        
+        // Comment Form
+        document.querySelector('.comment-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const comment = document.getElementById('comment').value;
+            
+            // Create new comment element
+            const newComment = document.createElement('div');
+            newComment.className = 'comment';
+            
+            const currentDate = new Date();
+            const formattedDate = currentDate.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            
+            newComment.innerHTML = `
+                <div class="comment-header">
+                    <div class="comment-author">${name}</div>
+                    <div class="comment-date">${formattedDate}</div>
+                </div>
+                <div class="comment-content">
+                    ${comment}
+                </div>
+            `;
+            
+            // Add new comment to comments section
+            const commentsSection = document.querySelector('.comments-section');
+            const commentForm = document.querySelector('.comment-form');
+            commentsSection.insertBefore(newComment, commentForm.nextSibling);
+            
+            // Reset form
+            this.reset();
+            
+            // Show success message
+            alert('Your comment has been posted successfully!');
+        });
+        
+        // Social Sharing
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const url = window.location.href;
+                const title = document.querySelector('.article-title').textContent;
+                
+                let shareUrl = '';
+                
+                if (this.querySelector('.fa-facebook-f')) {
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                } else if (this.querySelector('.fa-twitter')) {
+                    shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+                } else if (this.querySelector('.fa-linkedin-in')) {
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+                } else if (this.querySelector('.fa-whatsapp')) {
+                    shareUrl = `https://wa.me/?text=${encodeURIComponent(title + ' ' + url)}`;
+                } else if (this.querySelector('.fa-envelope')) {
+                    shareUrl = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`;
+                }
+                
+                if (shareUrl) {
+                    window.open(shareUrl, '_blank', 'width=600,height=400');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
